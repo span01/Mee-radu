@@ -1,0 +1,234 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Cart</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bootstrap Agency Template" name="keywords">
+        <meta content="Bootstrap Agency Template" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="libs/slick/slick-theme.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'css/style.css'%}" rel="stylesheet">
+
+    </head>
+    
+    
+
+<body>
+    <div class="wrapper">
+        <!-- Header Start -->
+            <div class="header">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2">
+                            <div class="brand">
+                                <a href="http://127.0.0.1:8000/">
+                                    <h1>
+                                        <nobr>MEE-RADU</nobr>
+                                    </h1>
+                                    
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="topbar">
+                                <div class="topbar-col">
+                                    <a href="tel:081-1467-789" style="color: #7A5552;"><i class="fa fa-phone-alt" style="color: #7A5552;"></i>081-1467-789</a>
+                                </div>
+                                <div class="topbar-col">
+                                    <a href="meeradu@gmail.com" style="color: #7A5552;"><i class="fa fa-envelope" style="color: #7A5552;"></i>meeradu@gmail.com</a>
+                                </div>
+                                <div class="topbar-col">
+                                    <div class="topbar-social">
+                                        <a href=""><i class="fab fa-twitter"></i></a>
+                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-youtube"></i></a>
+                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="navbar navbar-expand-lg bg-light navbar-light">
+                                <a href="#" class="navbar-brand">MENU</a>
+                                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+
+                                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                                    <div class="navbar-nav ml-auto">
+                                        <a href="http://127.0.0.1:8000/" class="nav-item nav-link">Home</a>
+                                        <a href="http://127.0.0.1:8000/aboutus/" class="nav-item nav-link">About Us</a>
+                                        <a href="http://127.0.0.1:8000/Product/" class="nav-item nav-link">Product</a>
+                                        <a href="http://127.0.0.1:8000/Forum/1" class="nav-item nav-link ">Forum</a>
+                                        {% if user.is_authenticated %}
+                                        <li>Hello,{{request.user}}</li>
+                                        <li><a href="{%url 'logout'%}" class="nav-item nav-link">Logout</a></li>
+                                        {%else%}
+                                        <li><a href="{%url 'register'%}" class="nav-item nav-link">Register</a></li>
+                                        <li><a href="{%url 'login'%}" class="nav-item nav-link">Login</a></li>
+                                        {%endif%}
+                                        <a href="https://htmlcodex.com/bootstrap-agency-template" style="padding-right: 8px;"><img src="{% static 'img/BK5.png' %}" width="30px;" alt="Logo"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header End -->
+        </div>    
+    </div>
+    
+    <div class="wrapper4">
+        <h1 class="col-lg-2">cart</h1>
+        {% load static %}
+        {% block content %}
+            {% if order != None %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="box-element">
+        
+                        <a  class="btn btn-outline-dark" href="{% url 'item' %}">&#x2190; Continue Shopping</a>
+        
+                        <br>
+                        <br>
+                        <table class="table">
+                            <tr>
+                                <th><h4>Items: <strong>{{order.get_cart_items}}</strong></h4></th>
+                                <th>
+                                    <a  style="float:right; margin:5px;" class="btn btn-success" href="{% url 'home' %}">Checkout</a>
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        
+        <br>
+        <div class="box-element">
+            <table class="table"> 
+                <tread>
+                    <tr>
+                        
+                        <th><strong>Item</strong></th>
+                        <th><strong>Price</strong></th>
+                        <th><strong>Quantity</strong></th>
+                    </tr>
+                </tread> 
+                <tbody> 
+                        
+                            {% for item in order.orderitem_set.all %}
+                            <div class="cart-row" style="text-align: center;">
+                            {% if item.product %}
+                                <tr>
+                                    <td><div style="flex:2"><p>{{item.product.name}}</p></div>
+                                    <div style="flex:2"><p>{{item.product.name_color}}</p></div>
+                                    <div style="flex:2"><p>{{item.product.name_belt}}</p></div></td>
+                                    <td><div style="flex:1"><p>฿{{item.product.price|floatformat:2}}</p></div></td>
+                                    <td><div style="flex:1"><p class="quantity">{{item.quantity}}</p></div></td>
+                                    <div style="flex:1">
+                                    </div>
+                                </tr>
+                            {% elif item.product2  %}
+                                <tr>
+                                    <td><div style="flex:2"><p>{{item.product2.name}}</p></div>
+                                    <div style="flex:2"><p>{{item.product2.name_color}}</p></div>
+                                    <div style="flex:2"><p>{{item.product2.name_belt}}</p></div></td>
+                                    <td><div style="flex:1"><p>฿{{item.product2.price|floatformat:2}}</p></div></td>
+                                    <td><div style="flex:1"><p class="quantity">{{item.quantity}}</p></div></td>
+                                    <div style="flex:1">
+                                    </div>
+                                </tr>
+                                {%else%}
+                                <tr>
+                                    <td><div style="flex:2"><p>{{item.product3.name}}</p></div>
+                                    <div style="flex:2"><p>{{item.product3.name_color}}</p></div>
+                                    <div style="flex:2"><p>{{item.product3.name_belt}}</p></div></td>
+                                    <td><div style="flex:1"><p>฿{{item.product3.price|floatformat:2}}</p></div></td>
+                                    <td><div style="flex:1"><p class="quantity">{{item.quantity}}</p></div></td>
+                                    <div style="flex:1">
+                            {% endif %}
+                                    </div>
+                            {% endfor %}
+                                </tr>
+                            </div> 
+                        
+                </tbody>   
+            </table>
+        </div>
+            
+        {% else %}
+        <h1 style="text-align:center;padding: 100px">No Items in cart</h1>
+        {% endif %}
+        {% endblock content %}
+    </div>
+    
+    
+    <!-- Footer Start -->
+    <div class="wrapper">  
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="footer-about">
+                            <h2>About Us</h2>
+                            <p>
+                                We started up Mee Radu with fully understanding of menstrual pains in every month and people in the same situations have less choice for decrease menstrual pains.
+                            </p>
+                            <br>
+                            <p><i class="fa fa-map-marker-alt"></i>Khlong Nueng, Khlong Luang District, Pathum Thani 12120</p>
+                            <p><i class="fa fa-phone-alt"></i>081-1467-789, 082-008-2431</p>
+                            <p><i class="fa fa-envelope"></i>meeradu@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+                            </div>
+                            <div class="contact2">
+                                <div class="contact-info">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.1852135137788!2d100.608684814834!3d14.066237790144552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDAzJzU4LjUiTiAxMDDCsDM2JzM5LjEiRQ!5e0!3m2!1sen!2sth!4v1620317288178!5m2!1sen!2sth" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p> <a href="https://htmlcodex.com"></a></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p> <a href="https://htmlcodex.com"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                 
+    <!-- Footer End -->
+            
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/slick/slick.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+            
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

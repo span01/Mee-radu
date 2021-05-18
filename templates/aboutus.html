@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>ABOUT US</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bootstrap Agency Template" name="keywords">
+        <meta content="Bootstrap Agency Template" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'lib/slick/slick.css' %}" rel="stylesheet">
+        <link href="{% static 'libs/slick/slick-theme.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'css/style.css'%}" rel="stylesheet">  
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <!-- Header Start -->
+            <div class="header">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2">
+                            <div class="brand">
+                                <a href="http://127.0.0.1:8000/">
+                                    <h1>
+                                        <nobr>MEE-RADU</nobr>
+                                    </h1>
+                                    
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="topbar">
+                                <div class="topbar-col">
+                                    <a href="tel:081-1467-789" style="color: #7A5552;"><i class="fa fa-phone-alt" style="color: #7A5552;"></i>081-1467-789</a>
+                                </div>
+                                <div class="topbar-col">
+                                    <a href="meeradu@gmail.com" style="color: #7A5552;"><i class="fa fa-envelope" style="color: #7A5552;"></i>meeradu@gmail.com</a>
+                                </div>
+                                <div class="topbar-col">
+                                    <div class="topbar-social">
+                                        <a href=""><i class="fab fa-twitter"></i></a>
+                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-youtube"></i></a>
+                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="navbar navbar-expand-lg bg-light navbar-light">
+                                <a href="#" class="navbar-brand">MENU</a>
+                                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+
+                                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                                    <div class="navbar-nav ml-auto">
+                                        <a href="http://127.0.0.1:8000/" class="nav-item nav-link">Home</a>
+                                        <a href="http://127.0.0.1:8000/aboutus/" class="nav-item nav-link active">About Us</a>
+                                        <a href="http://127.0.0.1:8000/Product/" class="nav-item nav-link">Product</a>
+                                        <a href="http://127.0.0.1:8000/forum/" class="nav-item nav-link ">Forum</a>
+                                        {% if user.is_authenticated %}
+                                        <li>Hello,{{request.user}}</li>
+                                        <li><a href="{%url 'logout'%}" class="nav-item nav-link">Logout</a></li>
+                                        {%else%}
+                                        <li><a href="{%url 'register'%}" class="nav-item nav-link">Register</a></li>
+                                        <li><a href="{%url 'login'%}" class="nav-item nav-link">Login</a></li>
+                                        {%endif%}
+                                        {% if user.is_authenticated %}
+                                        <a href="http://127.0.0.1:8000/cart" style="padding-right: 8px;"><img src="{% static 'img/BK5.png' %}" width="30px;" alt="Logo"></a>
+                                        {%else%}
+                                        <a href="{%url 'login'%}" style="padding-right: 8px;"><img src="{% static 'img/BK5.png' %}" width="30px;" alt="Logo"></a>
+                                        {%endif%}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header End -->
+
+
+            <!-- Single Page Start -->
+            <div class="single">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12" >
+                            <h2 class="section-title" style="color: #AA7C7A;">about us</h2>
+                            <p style="color: #222a41;">
+                                Our product will eliminate your menstrual pains with innovative technology called FIR. FIR is different from normal heating pads. Our product will decrease your menstrual pains. Easy to wear. Have your own style. Suit with your lifestyle and make you feel comfy.
+                            </p>
+                            <p style="color: #222a41;">
+                                We started up Mee Radu with fully understanding of menstrual pains in every month and people in the same situations have less choice for decrease menstrual pains.
+                            </p>
+                            <p style="color: #222a41;">
+                                Our product use innovative technology called FIR, Far infrared is a region in the infrared spectrum of electromagnetic radiation. Invisible to naked eyes. Far infrared is often defined as any radiation with a wavelengths of  15 micrometer (μm) to 1 mm (corresponding to a range of about 20 THz to 300 GHz), which places far infrared radiation within the CIE IR-B and IR-C bands.The long-wave side of the FIR spectrum overlaps with so named terahertz radiation. Different sources use different boundaries for the far infrared.
+                            </p>
+                            <p style="color: #222a41;">
+                                FIR is electromagnetic infrared that beneficial for growth of living things and human (Growth Radiation). It’s effects to liquid (human body consists of  liquid 70%) by spread liquid molecules or destroy bond of liquid to decrease size of molecules that make liquid more freely movement. FIR also induction nutrient and O2 to cell quickly so cell can recover, produce energy, increased immunity and excrete waste and residue, less use of kidney and liver system.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <img src="{% static 'img/ab.jpg' %}" alt="Image"style="width:85%">
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Single Page End -->
+
+
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="footer-about">
+                            <h2>About Us</h2>
+                            <p>
+                                We started up Mee Radu with fully understanding of menstrual pains in every month and people in the same situations have less choice for decrease menstrual pains.
+                            </p>
+                            <br>
+                            <p><i class="fa fa-map-marker-alt"></i>Khlong Nueng, Khlong Luang District, Pathum Thani 12120</p>
+                            <p><i class="fa fa-phone-alt"></i>081-1467-789, 082-008-2431</p>
+                            <p><i class="fa fa-envelope"></i>meeradu@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+                            </div>
+                            <div class="contact2">
+                                <div class="contact-info">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.1852135137788!2d100.608684814834!3d14.066237790144552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDAzJzU4LjUiTiAxMDDCsDM2JzM5LjEiRQ!5e0!3m2!1sen!2sth!4v1620317288178!5m2!1sen!2sth" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p> <a href="https://htmlcodex.com"></a></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p> <a href="https://htmlcodex.com"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+           
+            <!-- Footer End -->
+    
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/slick/slick.min.js"></script>
+        <script src="lib/isotope/isotope.pkgd.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
+    
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
+</html>

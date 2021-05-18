@@ -1,0 +1,348 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Product list</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bootstrap Agency Template" name="keywords">
+        <meta content="Bootstrap Agency Template" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'lib/slick/slick.css' %}" rel="stylesheet">
+        <link href="{% static 'libs/slick/slick-theme.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <!-- Header Start -->
+            <div class="header">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2">
+                            <div class="brand">
+                                <a href="http://127.0.0.1:8000/">
+                                    <h1>
+                                        <nobr>MEE-RADU</nobr>
+                                    </h1>
+                                    
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="topbar">
+                                <div class="topbar-col">
+                                    <a href="tel:081-1467-789" style="color: #7A5552;"><i class="fa fa-phone-alt" style="color: #7A5552;"></i>081-1467-789</a>
+                                </div>
+                                <div class="topbar-col">
+                                    <a href="meeradu@gmail.com" style="color: #7A5552;"><i class="fa fa-envelope" style="color: #7A5552;"></i>meeradu@gmail.com</a>
+                                </div>
+                                <div class="topbar-col">
+                                    <div class="topbar-social">
+                                        <a href=""><i class="fab fa-twitter"></i></a>
+                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-youtube"></i></a>
+                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="navbar navbar-expand-lg bg-light navbar-light">
+                                <a href="#" class="navbar-brand">MENU</a>
+                                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                                    <div class="navbar-nav ml-auto">
+                                        <a href="http://127.0.0.1:8000/" class="nav-item nav-link">Home</a>
+                                        <a href="http://127.0.0.1:8000/aboutus/" class="nav-item nav-link">About Us</a>
+                                        <a href="http://127.0.0.1:8000/Product/" class="nav-item nav-link active">Product</a>
+                                        <a href="http://127.0.0.1:8000/forum/" class="nav-item nav-link ">Forum</a>
+                                        {% if user.is_authenticated %}
+                                        <li>Hello,{{request.user}}</li>
+                                        <li><a href="{%url 'logout'%}" class="nav-item nav-link">Logout</a></li>
+                                        {%else%}
+                                        <li><a href="{%url 'register'%}" class="nav-item nav-link">Register</a></li>
+                                        <li><a href="{%url 'login'%}" class="nav-item nav-link">Login</a></li>
+                                        {%endif%}
+                                        {% if user.is_authenticated %}
+                                        <a href="http://127.0.0.1:8000/cart" style="padding-right: 8px;"><img src="{% static 'img/BK5.png' %}" width="30px;" alt="Logo"></a>
+                                        {%else%}
+                                        <a href="{%url 'login'%}" style="padding-right: 8px;"><img src="{% static 'img/BK5.png' %}" width="30px;" alt="Logo"></a>
+                                        {%endif%}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header End -->
+
+
+            <!-- Page Header Start -->
+            
+            <!-- Page Header End -->
+
+
+            <!-- Portfolio Start -->
+            <div class="portfolio">
+                <div class="container">
+                    <div class="section-header" style="color: #AA7C7A;">
+                        <h2>Our PRODUCT</h2>
+                        <p>We started up Mee Radu with fully understanding of menstrual pains in every month and people in the same situations have less choice for decrease menstrual pains.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <ul id="portfolio-flters">
+                                <li data-filter="*" class="filter-active">All</li>
+                                <li data-filter=".web-wo">The world</li>
+                                <li data-filter=".web-ma">The Magician</li>
+                                <li data-filter=".web-ch">The Chariot</li>
+                                <li data-filter=".web-em">The Empress</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row portfolio-container">
+                        <div class="col-lg-3 col-md-6 col-sm-6 portfolio-item web-wo">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="{% static 'img/pd8.png' %}" alt="Portfolio Image">
+                                    <a href="{% static 'img/pd8.png' %}" class="link-preview" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a href="http://127.0.0.1:8000/item2/3" class="link-details"><i class="fa fa-link"></i></a>
+                                    <a class="portfolio-title" href="http://127.0.0.1:8000/item2/3">T.O.M
+                                        (Moonshine     
+                                        The world)</a>
+                                </figure>
+                            </div>
+                              
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 portfolio-item web-em">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="{% static 'img/pd11.png' %}" alt="Portfolio Image">
+                                    <a href="{% static 'img/pd11.png' %}" class="link-preview" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a href="http://127.0.0.1:8000/item2/4" class="link-details"><i class="fa fa-link"></i></a>
+                                    <a class="portfolio-title" href="http://127.0.0.1:8000/item2/4">T.O.M
+                                        (Moonshine 
+                                        The empress)
+                                    </a>
+                                </figure>
+                            </div>
+                            
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 portfolio-item web-ma">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="{% static 'img/pd7.png' %}" alt="Portfolio Image">
+                                    <a href="{% static 'img/pd7.png' %}" class="link-preview" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a href="http://127.0.0.1:8000/item2/2" class="link-details"><i class="fa fa-link"></i></a>
+                                    <a class="portfolio-title" href="http://127.0.0.1:8000/item2/2">T.O.M
+                                        (Moonshine
+                                        The Magician)
+                                    </a>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 portfolio-item web-ch">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="{% static 'img/pd12.png' %}" alt="Portfolio Image">
+                                    <a href="{% static 'img/pd12.png' %}" class="link-preview" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a href="http://127.0.0.1:8000/item2/5" class="link-details"><i class="fa fa-link"></i></a>
+                                    <a class="portfolio-title" href="http://127.0.0.1:8000/item2/5">T.O.M 
+                                        (Moonshine
+                                        The Chariot)
+                                    </a>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 portfolio-item web-wo">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="{% static 'img/pd10.png' %}" alt="Portfolio Image">
+                                    <a href="{% static 'img/pd10.png' %}" class="link-preview" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a href="http://127.0.0.1:8000/item3/2" class="link-details"><i class="fa fa-link"></i></a>
+                                    <a class="portfolio-title" href="http://127.0.0.1:8000/item3/2">T.O.M6
+                                        (Redwine
+                                        The world)
+                                    </a>
+                                </figure>
+                            </div>
+                            
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 portfolio-item web-em">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="{% static 'img/pd13.png' %}" alt="Portfolio Image">
+                                    <a href="{% static 'img/pd13.png' %}" class="link-preview" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a href="http://127.0.0.1:8000/item3/3" class="link-details"><i class="fa fa-link"></i></a>
+                                    <a class="portfolio-title" href="http://127.0.0.1:8000/item3/3">T.O.M
+                                        (Redwine
+                                        The empress)
+                                    </a>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 portfolio-item web-ma">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="{% static 'img/pd9.png' %}" alt="Portfolio Image">
+                                    <a href="{% static 'img/pd9.png' %}" class="link-preview" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a href="http://127.0.0.1:8000/item3/1" class="link-details"><i class="fa fa-link"></i></a>
+                                    <a class="portfolio-title" href="http://127.0.0.1:8000/item3/1">T.O.M
+                                        (Redwine
+                                        The Magician)
+                                    </a>
+                                </figure>
+                            </div>
+                           
+                            
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 portfolio-item web-ch">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="{% static 'img/pd14.png' %}" alt="Portfolio Image">
+                                    <a href="{% static 'img/pd14.png' %}" class="link-preview" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a href="http://127.0.0.1:8000/item3/4" class="link-details"><i class="fa fa-link"></i></a>
+                                    <a class="portfolio-title" href="http://127.0.0.1:8000/item3/4">T.O.M
+                                        (Redwine
+                                        The Chariot)
+                                    </a>
+                                </figure>
+                            </div>
+                           
+                            
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 portfolio-item web-wo">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="{% static 'img/pd6.png' %}" alt="Portfolio Image">
+                                    <a href="{% static 'img/pd6.png' %}" class="link-preview" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a href="http://127.0.0.1:8000/item/2" class="link-details"><i class="fa fa-link"></i></a>
+                                    <a class="portfolio-title" href="http://127.0.0.1:8000/item/2">T.O.M
+                                        (Midnight
+                                        The world)
+                                    </a>
+                                </figure>
+                            </div>
+                            
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 portfolio-item web-em">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="{% static 'img/pd15.png' %}" alt="Portfolio Image">
+                                    <a href="{% static 'img/pd15.png' %}" class="link-preview" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a href="http://127.0.0.1:8000/item/3" class="link-details"><i class="fa fa-link"></i></a>
+                                    <a class="portfolio-title" href="http://127.0.0.1:8000/item/3">T.O.M
+                                        (Midnight
+                                        The empress)
+                                    </a>
+                                </figure>
+                            </div>
+                            
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 portfolio-item web-ma">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="{% static 'img/pd4.PNG' %}" alt="product Image">
+                                    <a href="{% static 'img/pd4.PNG' %}" class="link-preview" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a href="http://127.0.0.1:8000/item/1" class="link-details"><i class="fa fa-link"></i></a>
+                                    <a class="portfolio-title" href="http://127.0.0.1:8000/item/1">T.O.M
+                                        (Midnight
+                                        The Magician)
+                                    </a>
+                                    
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 portfolio-item web-ch">
+                            <div class="portfolio-wrap">
+                                <figure>
+                                    <img src="{% static 'img/pd16.png' %}" alt="Portfolio Image">
+                                    <a href="{% static 'img/pd16.png' %}" class="link-preview" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a href="http://127.0.0.1:8000/item/4" class="link-details"><i class="fa fa-link"></i></a>
+                                    <a class="portfolio-title" href="http://127.0.0.1:8000/item/4">T.O.M
+                                        (Midnight
+                                        The Chariot)
+                                    </a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- Portfolio Start -->
+
+
+            <!-- Call to Action Start -->
+            
+            <!-- Call to Action End -->
+
+
+            <!-- Footer Start -->
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="footer-about">
+                                <h2>About Us</h2>
+                                <p>
+                                    We started up Mee Radu with fully understanding of menstrual pains in every month and people in the same situations have less choice for decrease menstrual pains.
+                                </p>
+                                <br>
+                                <p><i class="fa fa-map-marker-alt"></i>Khlong Nueng, Khlong Luang District, Pathum Thani 12120</p>
+                                <p><i class="fa fa-phone-alt"></i>081-1467-789, 082-008-2431</p>
+                                <p><i class="fa fa-envelope"></i>meeradu@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row">
+                                </div>
+                                <div class="contact2">
+                                    <div class="contact-info">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.1852135137788!2d100.608684814834!3d14.066237790144552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDAzJzU4LjUiTiAxMDDCsDM2JzM5LjEiRQ!5e0!3m2!1sen!2sth!4v1620317288178!5m2!1sen!2sth" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container copyright">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p> <a href="https://htmlcodex.com"></a></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p> <a href="https://htmlcodex.com"></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'lib/slick/slick.min.js' %}"></script>
+        <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+        <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+
+        <!-- Template Javascript -->
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

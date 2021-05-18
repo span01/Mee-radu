@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Forum</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bootstrap Agency Template" name="keywords">
+        <meta content="Bootstrap Agency Template" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'lib/slick/slick.css' %}" rel="stylesheet">
+        <link href="{% static 'libs/slick/slick-theme.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'css/style.css'%}" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div class="wrapper">
+            <!-- Header Start -->
+            <div class="header">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2">
+                            <div class="brand">
+                                <a href="http://127.0.0.1:8000/">
+                                    <h1>
+                                        <nobr>MEE-RADU</nobr>
+                                    </h1>
+                                    
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="topbar">
+                                <div class="topbar-col">
+                                    <a href="tel:081-1467-789" style="color: #7A5552;"><i class="fa fa-phone-alt" style="color: #7A5552;"></i>081-1467-789</a>
+                                </div>
+                                <div class="topbar-col">
+                                    <a href="meeradu@gmail.com" style="color: #7A5552;"><i class="fa fa-envelope" style="color: #7A5552;"></i>meeradu@gmail.com</a>
+                                </div>
+                                <div class="topbar-col">
+                                    <div class="topbar-social">
+                                        <a href=""><i class="fab fa-twitter"></i></a>
+                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-youtube"></i></a>
+                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="navbar navbar-expand-lg bg-light navbar-light">
+                                <a href="#" class="navbar-brand">MENU</a>
+                                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+
+                                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                                    <div class="navbar-nav ml-auto">
+                                        <a href="http://127.0.0.1:8000/" class="nav-item nav-link">Home</a>
+                                        <a href="http://127.0.0.1:8000/aboutus/" class="nav-item nav-link">About Us</a>
+                                        <a href="http://127.0.0.1:8000/Product/" class="nav-item nav-link">Product</a>
+                                        <a href="http://127.0.0.1:8000/forum/" class="nav-item nav-link ">Forum</a>
+                                        {% if user.is_authenticated %}
+                                        <li>Hello,{{request.user}}</li>
+                                        <li><a href="{%url 'logout'%}" class="nav-item nav-link">Logout</a></li>
+                                        {%else%}
+                                        <li><a href="{%url 'register'%}" class="nav-item nav-link">Register</a></li>
+                                        <li><a href="{%url 'login'%}" class="nav-item nav-link">Login</a></li>
+                                        {%endif%}
+                                        {% if user.is_authenticated %}
+                                        <a href="http://127.0.0.1:8000/cart" style="padding-right: 8px;"><img src="{% static 'img/BK5.png' %}" width="30px;" alt="Logo"></a>
+                                        {%else%}
+                                        <a href="{%url 'login'%}" style="padding-right: 8px;"><img src="{% static 'img/BK5.png' %}" width="30px;" alt="Logo"></a>
+                                        {%endif%}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header End -->
+
+
+           
+
+
+            <!-- About Start -->
+            <div class="about">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <img src="{% static 'img/F1.jpg' %}" alt="Image">
+                        </div>
+                        <div class="col-md-6">
+                            <h2 class="section-title">Period tips when having a sleepover</h2>
+                            <p>
+                                Your beshies and you have been planning a sleepover for ages and just as the day finally arrives, your period decides to join the party. Don’t worry, it’s not the end of the world! After all, the arrival of your period doesn’t mean that your social life has to stop! The secret is to be well-prepared, so your period doesn’t weigh heavily on your mind. Here are some tips to help you focus more on having fun during your sleepover and less on your period. 
+                                <br>
+                                Pack Dark Clothing and a Towel
+                                <br>
+                                Wearing darker clothing, such as black jogger pants, can help disguise any accidents. Remember to include some extra underwear just in case.
+                                <br>
+                                Don’t want your pads to bulge through your clothes? Opt for Thin pads for the day and Night   pads for overnight use so that your period remains your secret. 
+                                <br><b>Tip: ultra-thin pads are great for not showing under tighter clothing, just in case you choose to have an active day out with the girls.
+                                To avoid staining your friend’s bed sheets, bring along an extra towel and place it on your side of the bed before you sleep. This way, even if tagos happens, you stain the towel and not your friend’s bed sheets.</b>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- About End -->
+
+            <!--About 4 End-->
+            <!-- Team Start -->
+           
+            <!-- Team End -->
+
+
+            <!-- Call to Action Start -->
+            
+            <!-- Call to Action End -->
+
+
+            <!-- Footer Start -->
+            
+            <!-- Footer End -->
+        </div>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'lib/slick/slick.min.js' %}"></script>
+        <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+        <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+               
+        <!-- Template Javascript -->
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>
