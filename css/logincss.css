@@ -1,0 +1,170 @@
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+body{
+
+    margin: 0;
+  
+    padding: 0;
+  
+    font-family: 'Raleway', sans-serif;
+  
+    
+
+    background: linear-gradient(120deg, #705545, #ffd2d2);
+    
+  
+  }
+  
+  .box{
+  
+    width: 300px;
+  
+    padding: 40px;
+  
+    position: absolute;
+  
+    top: 50%;
+  
+    left: 50%;
+  
+    transform: translate(-50%,-50%);
+  
+    background: #f3f3f3;
+  
+    text-align: center;
+  
+  }
+  
+  .box h1{
+  
+    color: rgb(49, 42, 42);
+  
+    text-transform: uppercase;
+  
+    font-weight: 300;
+    font-family: 'Raleway', sans-serif;
+  
+  }
+  
+  .box input[type = "text"],.box input[type = "password"]{
+  
+    border:0;
+  
+    background: none;
+  
+    display: block;
+  
+    margin: 20px auto;
+  
+    text-align: center;
+  
+    border: 2px solid #f08f8b;
+  
+    padding: 14px 10px;
+  
+    width: 200px;
+  
+    outline: none;
+  
+    color: rgb(0, 0, 0);
+  
+    border-radius: 24px;
+  
+    transition: 0.25s;
+  
+  }
+  
+  .box input[type = "text"]:focus,.box input[type = "password"]:focus{
+  
+    width: 280px;
+  
+    border-color: #a34740;
+  
+  }
+  
+  .box input[type = "submit"]{
+  
+    border:0;
+  
+    background: none;
+  
+    display: block;
+  
+    margin: 20px auto;
+  
+    text-align: center;
+  
+    border: 2px solid #ac4a43;
+  
+    padding: 14px 40px;
+  
+    outline: none;
+  
+    color: rgb(61, 61, 61);
+  
+    border-radius: 24px;
+  
+    transition: 0.25s;
+  
+    cursor: pointer;
+  
+  }
+
+  .box input[type = "submit"]:hover{
+      color: white;
+  }
+  
+  .box input[type = "submit"]:hover{
+  
+    background: #ac4a43;
+  
+  }
+
+  .box a{
+  
+    border:0;
+  
+    background: none;
+  
+    display: block;
+  
+    margin: 20px auto;
+  
+    text-align: center;
+  
+    border: 2px solid #ac4a43;
+  
+    padding: 14px 40px;
+  
+    outline: none;
+  
+    color: rgb(61, 61, 61);
+  
+    border-radius: 24px;
+  
+    transition: 0.25s;
+  
+    cursor: pointer;
+    
+    text-decoration: none;
+    width: 60px;
+    
+  
+  }
+
+  .box a:hover{
+      color: white;
+  }
+
+  .box a:hover{
+  
+    background: #ac4a43;
+  
+  }
