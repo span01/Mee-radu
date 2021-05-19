@@ -1,0 +1,300 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Shop_detail</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bootstrap Agency Template" name="keywords">
+        <meta content="Bootstrap Agency Template" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/slick/slick.css" rel="stylesheet">
+        <link href="libs/slick/slick-theme.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'css/style.css'%}" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    </head>
+    
+    <body>
+        <div class="wrapper">
+            <!-- Header Start -->
+            <div class="header">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2">
+                            <div class="brand">
+                                <a href="http://127.0.0.1:8000/">
+                                    <h1>
+                                        <nobr>MEE-RADU</nobr>
+                                    </h1>
+                                    
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="topbar">
+                                <div class="topbar-col">
+                                    <a href="tel:081-1467-789" style="color: #7A5552;"><i class="fa fa-phone-alt" style="color: #7A5552;"></i>081-1467-789</a>
+                                </div>
+                                <div class="topbar-col">
+                                    <a href="meeradu@gmail.com" style="color: #7A5552;"><i class="fa fa-envelope" style="color: #7A5552;"></i>meeradu@gmail.com</a>
+                                </div>
+                                <div class="topbar-col">
+                                    <div class="topbar-social">
+                                        <a href=""><i class="fab fa-twitter"></i></a>
+                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-youtube"></i></a>
+                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="navbar navbar-expand-lg bg-light navbar-light">
+                                <a href="#" class="navbar-brand">MENU</a>
+                                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+
+                                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                                    <div class="navbar-nav ml-auto">
+                                        <a href="http://127.0.0.1:8000/" class="nav-item nav-link">Home</a>
+                                        <a href="http://127.0.0.1:8000/aboutus/" class="nav-item nav-link">About Us</a>
+                                        <a href="http://127.0.0.1:8000/Product/" class="nav-item nav-link">Product</a>
+                                        <a href="http://127.0.0.1:8000/forum/" class="nav-item nav-link">Forum</a>
+                                        {% if user.is_authenticated %}
+                                        <li>Hello,{{request.user}}</li>
+                                        <li><a href="{%url 'logout'%}" class="nav-item nav-link">Logout</a></li>
+                                        {%else%}
+                                        <li><a href="{%url 'register'%}" class="nav-item nav-link">Register</a></li>
+                                        <li><a href="{%url 'login'%}" class="nav-item nav-link">Login</a></li>
+                                        {%endif%}
+                                        {% if user.is_authenticated %}
+                                        <a href="http://127.0.0.1:8000/cart" style="padding-right: 8px;"><img src="{% static 'img/BK5.png' %}" width="30px;" alt="Logo"></a>
+                                        {%else%}
+                                        <a href="{%url 'login'%}" style="padding-right: 8px;"><img src="{% static 'img/BK5.png' %}" width="30px;" alt="Logo"></a>
+                                        {%endif%}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header End -->
+
+
+           
+
+
+            <!-- About Start -->
+            <div class="shop-detail-box-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                            <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="carousel-item active" style="background-color: rgb(235, 235, 235);"> <img class="d-block w-100" src="{{item.image.url}}" alt="First slide"> </div>
+                                </div><br>
+                                <p style="text-align: center;"><b>
+                                    {{item.name}} {{item.name_belt}} {{item.name_color}}
+                                </b></p>
+                                <p style="color: black; font-size: 18px;">
+                                    T.o.M. 1 has a new technology that radiate the Far infarrated (FIR) which make liquid in our body flow more easily without any side effect.Can relieve 80% of pain in only 10 seconds It alleviate Premenstral syndrome (PMS) and Pelvic Inflammatory disease (PID) 
+                                </p>
+                                <p style="color: black; font-size: 18px;">
+                                    -Made of graphenes which can produce heat to relieve your menstraul pain.<br>
+                                    -Have pockets to keep small things or a sanitary napkin.<br>
+                                    -Able to wear under clothes and as a bag to not feel any distinguish in public apace.<br>
+                                    -Able to connect and control by application.        
+                                </p>   
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                            <div class="single-product-details">
+                                <h2>{{item.name}}</h2>
+                                <h2>{{item.name_belt}}</h2>
+                                <h2>{{item.name_color}}</h2>
+                                <p class="available-stock"><span> More than 20 available </span><p>
+                                <h4>BELT COLOR</h4>
+                            <div class="row">
+                                <a href="http://127.0.0.1:8000/item2/2" class="nav-item nav-link "><img src="{{item.color1.url}}" width="40" alt="col1"></a>
+                                <a href="http://127.0.0.1:8000/item3/1" class="nav-item nav-link "><img src="{{item.color2.url}}" width="40" alt="col1"></a>
+                                <a href="http://127.0.0.1:8000/item/1" class="nav-item nav-link "><img src="{{item.color3.url}}" width="40" alt="col1"></a>
+                            </div>    
+                                <h4>TEXTUER</h4>
+                                <div class="row">
+                                    <a href="http://127.0.0.1:8000/item/2" class="nav-item nav-link "><img src="{{item.pattern1.url}}" width="40" alt="col1"></a>
+                                    <a href="http://127.0.0.1:8000/item/1" class="nav-item nav-link "><img src="{{item.pattern2.url}}" width="40" alt="col1"></a>
+                                    <a href="http://127.0.0.1:8000/item/4" class="nav-item nav-link "><img src="{{item.pattern3.url}}" width="40" alt="col1"></a>
+                                    <a href="http://127.0.0.1:8000/item/3" class="nav-item nav-link "><img src="{{item.pattern4.url}}" width="40" alt="col1"></a>
+                                </div><br>
+                                <h3>PRICE: {{item.price}}</h3>
+
+                                <form method="POST" action="{% url 'itemDetailView' item.id %}">
+                                    {% csrf_token %}
+                                    
+                                    {% if user.is_authenticated %}
+                                        <div class="price-box-bar" >
+                                            <div class="form-group quantity-box">
+                                                <label class="control-label">Quantity</label>
+                                                <input class="form-control" value="0" min="0" max="20" type="number" name="quantity">
+                                            </div>
+                                            <div class="cart-and-bay-btn"></div>
+                                                <a class="btn" data-fancybox-close=""><input class="btn btn-red" style="color: aliceblue;" type="submit" value="Add to Cart"></a>
+                                            </div>
+                                        </div>
+                                    {%else%}
+                                        <p>Please Login</p>
+                                    {%endif%}
+                                            
+                                </form>
+                               
+                    
+                                    <div class="share-bar">
+                                        <a class="btn" href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                                        <a class="btn" href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                                        <a class="btn" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                        <a class="btn" href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="container-fluid">
+                            <div class="row justify-content-center">
+                                <img src="{% static 'img/de3.png' %}" alt="Image"style="width:65%">
+                            </div>
+                            <br>
+                            <div class="row justify-content-center">
+                                <img src="{% static 'img/ab2.jpg' %}" alt="Image"style="width:65%">
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+            <!-- About End -->
+        </div>
+        <div class="wrapper5">
+            <div class="">
+                <div class="card card-outline-secondary my-6 col-lg-12">
+                    <div class="card-header">
+                        <h2>Product Reviews</h2>
+                    </div>
+                    {% for review in item.reviews.all %}
+                    <div class="card-body">
+                        <div class="media mb-3">
+                            <div class="media-body">
+                                <p>{{ review.comment }}</p>
+                                <small class="text-muted">Posted by {{review.user}} on {{review.date_added}}</small>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="card-body">
+                        <div class="media mb-3">
+                            <div class="media-body">
+                                <p>No reviews yet...</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="wrapper5">
+            <div class="notification space-below">
+                <div style="text-align: left;">
+                    {% if request.user.is_authenticated %}
+                    <form method="post" class="form-group" action="{% url 'comment' item.id %}">
+                        {% csrf_token %}
+                        <div class="field">
+                            <label>Comment</label>
+                            <div class="control">
+                                <textarea class="textarea col-lg-12" name="comment"></textarea>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                    {% else %}
+                        <p>Please sign in to add review!</p>
+                    {% endif %}
+                </div>
+          
+                
+            </div>
+        </div>
+
+        
+
+
+        <!-- Footer Start -->            
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="footer-about">
+                            <h2>About Us</h2>
+                            <p>
+                                We started up Mee Radu with fully understanding of menstrual pains in every month and people in the same situations have less choice for decrease menstrual pains.
+                            </p>
+                            <br>
+                            <p><i class="fa fa-map-marker-alt"></i>Khlong Nueng, Khlong Luang District, Pathum Thani 12120</p>
+                            <p><i class="fa fa-phone-alt"></i>081-1467-789, 082-008-2431</p>
+                            <p><i class="fa fa-envelope"></i>meeradu@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+                            </div>
+                            <div class="contact2">
+                                <div class="contact-info">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.1852135137788!2d100.608684814834!3d14.066237790144552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDAzJzU4LjUiTiAxMDDCsDM2JzM5LjEiRQ!5e0!3m2!1sen!2sth!4v1620317288178!5m2!1sen!2sth" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p> <a href="https://htmlcodex.com"></a></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p> <a href="https://htmlcodex.com"></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+            <!-- Footer End -->
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/slick/slick.min.js"></script>
+        <script src="lib/isotope/isotope.pkgd.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
+</html>
+

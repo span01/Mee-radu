@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Register</title>
+        <link href="{% static 'css/style3.css' %}" rel="stylesheet">
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="login-wrapper">
+
+            <div class="login-left">
+                <div class="container-fluid">
+                    <img src="{% static 'img/home1.jpg' %}" alt="login">
+                    <div class="h1"></div>
+                </div>
+            </div>
+            <div class="login-right">
+                <div class="container-fluid"></div>
+                    <h1>register</h1>
+                    {% block title %}Create an Account{% endblock %}
+                    {% csrf_token %}
+                    {% block content %}
+                <form method="POST" class="form-group" >
+                    {% csrf_token %}
+                    <input placeholder="Username"{{r_form.username}}
+                        
+
+                    <input placeholder="First_name"{{p_form.first_name}}
+
+
+                    <input placeholder="Last_name"{{r_form.last_name}}
+                        
+
+                    <input placeholder="Address"{{p_form.address}}
+                        
+
+                    <input placeholder="Phone"{{p_form.phone}}
+                        
+
+                    <input placeholder="Email" type='text'{{r_form.email}}
+                        
+
+                    <input placeholder="Password"{{r_form.password1}}
+                        
+
+                    <input placeholder="Confirm_password"{{r_form.password2}}
+                       
+                    <br>
+                    <div class="button-area">
+                        <button type="submit" class="btn btn-success btn btn-primary">Register</button>
+                    </div>
+                </form>
+                    {% endblock %}
+                    
+                
+            </div>
+        </div>
+        <script src="{% static 'js/jslogin.js' %}"></script>
+    </body>
+</html>
